@@ -7,6 +7,19 @@ public class Revista {
 	private String mes;
 	private int qtdPaginas;
 	
+	public Revista(int id, String nome, int ano, String mes, int qtdPaginas) {
+		super();
+		this.id = id;
+		this.nome = nome;
+		this.ano = ano;
+		this.mes = mes;
+		this.qtdPaginas = qtdPaginas;
+	}
+	
+	public Revista() {
+		
+	}
+
 	public int getId() {
 		return id;
 	}

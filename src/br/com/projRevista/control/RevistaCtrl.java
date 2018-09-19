@@ -2,6 +2,7 @@ package br.com.projRevista.control;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Calendar;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -26,10 +27,18 @@ public class RevistaCtrl extends HttpServlet {
 		r.setMes(request.getParameter("mes"));
 		r.setQtdPaginas(Integer.parseInt(request.getParameter("qtdPags")));
 		
-		try {
-			msg = new RevistaDB().inserir(r) ? "Revista salva com sucesso." : "Erro ao salvar a revista";
-		} catch(SQLException exc) {
-			msg = exc.getMessage();
+		// Verificando se o ano da revista não é maior do que o atual
+		Calendar now = Calendar.getInstance();
+		int year = now.get(Calendar.YEAR);
+		
+		if (r.getAno() > year) {
+			msg = "O ano da revista não pode ser maior do que o ano atual.";
+		} else {
+			try {
+				msg = new RevistaDB().inserir(r) ? "Revista salva com sucesso." : "Erro ao salvar a revista";
+			} catch(SQLException exc) {
+				msg = exc.getMessage();
+			}
 		}
 		
 		request.setAttribute("msg", msg);

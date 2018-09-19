@@ -10,11 +10,11 @@
 		<table>
 			<tr>
 				<td>Nome:</td>
-				<td><input type="text" name="nome" required=true size=50></td>
+				<td><input type="text" name="nome" required=true size=50 minlength=7></td>
 			</tr>
 			<tr>
 				<td>Ano:</td>
-				<td><input type="number" name="ano" required=true min=1600 max=2018></td>
+				<td><input type="number" name="ano" required=true min=1600></td>
 			</tr>
 			<tr>
 				<td>Mês:</td>
@@ -41,8 +41,9 @@
 			</tr>
 		</table>
 		<br>
-		<input type="submit" value="Cadastrar">
+		<input type="submit" value="Cadastrar" width=100>
 	</form>
+	<form action="home.html"><input type="submit" value="Voltar" width=100></form>
 	
 	<% if (request.getAttribute("msg") != null) { %>
 		<br><br>
