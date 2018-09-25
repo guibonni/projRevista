@@ -10,6 +10,7 @@
 </head>
 <body>
 	<form method="post" action="ConsultaServlet">
+		<input type="text" name="filtro">
 		<input type="submit" value="Consultar">
 	</form>
 	
@@ -17,6 +18,8 @@
 		<br><br>
 		<b><%=request.getAttribute("msg")%></b>
 	<% } %>
+	
+	<% if (request.getAttribute("rows") != null) { %>
 	
 	<table border="1">
 		<tr>
@@ -40,7 +43,8 @@
 		<% } %>
 		
 	</table>
-	
+	<% } %>
+	<br>
 	<form action="home.html"><input type="submit" value="Voltar" width=100></form>
 </body>
 </html>

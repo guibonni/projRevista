@@ -23,7 +23,7 @@ public class ConsultaServlet extends HttpServlet {
     	List<Revista> rows = new ArrayList<>();
     	
 		try {
-			rows = new RevistaDB().getAll();
+			rows = new RevistaDB().getAll(request.getParameter("filtro"));
 		} catch(SQLException exc) {
 			msg = exc.getMessage();
 		}
