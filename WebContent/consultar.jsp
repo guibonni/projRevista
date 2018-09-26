@@ -10,7 +10,16 @@
 </head>
 <body>
 	<form method="post" action="ConsultaServlet">
-		<input type="text" name="filtro">
+		<table>
+			<tr>
+				<td>Nome: </td>
+				<td><input type="text" name="filtro"></td>
+			</tr>
+			<tr>
+				<td>Ano: </td>
+				<td><input type="number" name="ano" min=1600></td>
+			</tr>
+		</table>
 		<input type="submit" value="Consultar">
 	</form>
 	
